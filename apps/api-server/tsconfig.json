@@ -1,0 +1,41 @@
+
+{
+	"compilerOptions": {
+		"module": "commonjs",
+		"declaration": true,
+		"removeComments": true,
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+		"allowSyntheticDefaultImports": true,
+		"target": "es2017",
+		"sourceMap": true,
+		"outDir": "./dist",
+		"baseUrl": "./",
+		"incremental": true,
+
+		"noLib": false,
+		"noImplicitAny": false,
+		"typeRoots": ["node_modules/@types", "types"],
+		"paths": {
+			"@common": ["src/common"],
+			"@config": ["src/config"],
+			"@environments": ["src/environments"],
+			"@entities": ["src/entities"],
+			"@controllers": ["src/controllers"],
+			"@services": ["src/services"],
+			"@validators": ["src/validators"],
+			"@utils": ["src/utils"],
+			"@validations": ["src/validations"]
+		}
+	},
+	"include": ["src/**/*.ts", "test"],
+	"compileOnSave": false,
+	"exclude": [
+		"node_modules",
+		"coverage",
+		"document",
+		"dist",
+		"backup",
+		"**/*.spec.ts"
+	]
+}

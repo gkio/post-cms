@@ -1,0 +1,66 @@
+$basecolor: #2980b9;
+
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-wrap: wrap;
+
+  &-block {
+    width: 400px;
+    flex-basis: 400px;
+  }
+
+  &-error {
+    height: 30px;
+    border: 1px solid #c0392b;
+    background-color: #e74c3c;
+    padding: 0 10px;
+    width: 100%;
+    margin-bottom: 10px;
+    line-height: 30px;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    visibility: hidden;
+
+    &.visible {
+      visibility: visible;
+    }
+  }
+
+  &-searchbar {
+    width: 100%;
+    display: block;
+    height: 50px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    border: 1px solid $basecolor;
+    padding: 0 10px;
+    border-radius: 2px;
+    outline: none;
+    color: #34495e;
+
+    &::placeholder {
+      color: #95a5a6;
+    }
+
+    &__button {
+      width: 100%;
+      display: block;
+      padding: 10px;
+      height: 50px;
+      text-transform: uppercase;
+      border: none;
+      background-color: $basecolor;
+      box-shadow: 1px 1px 5px $basecolor;
+      color: #fff;
+      font-size: 23px;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}

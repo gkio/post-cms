@@ -1,0 +1,46 @@
+version: "3.5"
+
+services:
+  nestjs:
+    build:
+      context: ./apps/api-server
+      dockerfile: Dockerfile
+    container_name: api_nestjs
+    environment:
+      - DB_HOST_WITH_PORT=mongodb://db_mongo
+      - DB_DATABASE=blog-post
+    # env_file:
+    #  - ./apps/api-server/.env.dev
+    depends_on:
+      - db
+    restart: always
+    ports:
+      - 3001:3001
+    volumes:
+      - ./apps/api-server/:/app
+      - /app/node_modules
+
+  react_app:
+    build:
+      context: ./apps/react-client
+      dockerfile: Dockerfile
+    environment:
+      - API_URL=http://api_nestjs
+    # env_file:
+    #  - ./apps/react-client/.env.dev
+    ports:
+      - 3000:3000
+    volumes:
+      - ./apps/react-client/:/app
+      - /app/node_modules
+  
+  db:
+    image: mongo
+    container_name: db_mongo
+    volumes:
+      - mongodata:/data/db
+    ports:
+      - "27017:27017"
+
+volumes:
+  mongodata: 
